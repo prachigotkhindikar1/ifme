@@ -14,6 +14,8 @@
 #
 
 class Strategy < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   belongs_to :user, foreign_key: :userid
   serialize :category, Array
   serialize :viewers, Array
@@ -35,5 +37,9 @@ class Strategy < ActiveRecord::Base
 
   def active_reminders
     [perform_strategy_reminder].select(&:active?)
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 end

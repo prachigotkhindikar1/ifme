@@ -35,6 +35,7 @@ gem 'figaro',                     '1.1.1'
 gem 'i18n-js',                    '>= 3.0.0.rc11'
 
 gem 'sdoc',                       '0.4.1', group: :doc
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'dotenv',                     '2.1.1'

@@ -274,7 +274,7 @@ class MomentsController < ApplicationController
 
   def set_moment
     begin
-      @moment = Moment.find(params[:id])
+      @moment = Moment.friendly.find(params[:id])
     rescue
       if @moment.blank?
         respond_to do |format|
